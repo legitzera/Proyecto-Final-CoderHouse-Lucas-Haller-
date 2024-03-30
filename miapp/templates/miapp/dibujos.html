@@ -6,6 +6,7 @@
 
 {% block titulo %}
  <h1 class="fw-bolder">Dibujos</h1>
+ <a class="btn btn-lg btn-light" href="#about">Comienza a Bajar!</a>
 {% endblock titulo %}
 
 {% block contenido %}
@@ -29,6 +30,7 @@
                 <th> Id </th>
                 <th> Nombre </th>
                 <th> Autor </th>
+                <th> Precio_USD </th>
                 <th> Acciones </th>
             </tr>
         </thead>
@@ -38,6 +40,7 @@
                 <td>{{ d.id }}</td>
                 <td>{{ d.nombre }}</td>   
                 <td>{{ d.autor }}</td>  
+                <td>{{ d.precio_USD }}</td>  
                 <td>
                     <a
                       href="{% url 'dibujo_update' d.id %}"

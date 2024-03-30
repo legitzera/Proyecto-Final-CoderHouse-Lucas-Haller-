@@ -7,6 +7,7 @@
 
 {% block titulo %}
  <h1 class="fw-bolder">Camisetas</h1>
+ <a class="btn btn-lg btn-light" href="#about">Comienza a Bajar!</a>
 {% endblock titulo %}
 
 {% block contenido %}
@@ -31,6 +32,7 @@
             <th> Nombre </th>
             <th> Color </th>
             <th> Forma </th>
+            <th> Precio_USD </th>
             <th> Acciones </th>
         </tr>
     </thead>
@@ -41,6 +43,7 @@
             <td>{{ c.nombre }}</td>   
             <td>{{ c.color }}</td> 
             <td>{{ c.forma }}</td> 
+            <td>{{ c.precio_USD }}</td> 
 
             <td>
                 <a

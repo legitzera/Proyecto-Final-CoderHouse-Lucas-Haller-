@@ -22,10 +22,11 @@ class Entregable(models.Model):
     nombre = models.CharField(max_length=40)
     fechaEntrega = models.DateField()
     entregado = models.BooleanField()
-
+#------------------------LO DE ARRIBA FUE PRACTICA-----------------------------------------------------    
 class Carta(models.Model):
     nombre = models.CharField(max_length=100)
     tipo = models.CharField(max_length=100)
+    precio_USD = models.DecimalField(max_digits=10, decimal_places=2, default=0)
     class Meta:
         ordering = ["nombre"]
         
@@ -35,12 +36,14 @@ class Carta(models.Model):
 class Dibujo(models.Model):
     nombre = models.CharField(max_length=100)
     autor = models.CharField(max_length=100)
+    precio_USD = models.DecimalField(max_digits=10, decimal_places=2, default=0)
     def __str__(self):
         return f"{self.nombre} de {self.autor}"
 
 class Figura(models.Model):
     nombre = models.CharField(max_length=100)
     material = models.CharField(max_length=100)
+    precio_USD = models.DecimalField(max_digits=10, decimal_places=2, default=0)
     def __str__(self):
         return f"{self.nombre}"
     
@@ -48,6 +51,8 @@ class Camiseta(models.Model):
     nombre = models.CharField(max_length=100)
     color = models.CharField(max_length=100)
     forma = models.CharField(max_length=100)
+    precio_USD = models.DecimalField(max_digits=10, decimal_places=2, default=0)
+
     def __str__(self):
         return f"{self.nombre} manga {self.forma}"    
 

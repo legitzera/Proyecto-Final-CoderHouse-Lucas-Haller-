@@ -52,7 +52,7 @@ def ejemploMejor(request):
     respuesta = plantilla.render(contexto)
     return render(request, "miapp/ejemplomejor.html")
 
-def nuevo_curso(request):
+def nuevo_curso(rlogin_requiredequest):
     iComision = random.randint(20000,30000)
     sNombre = "Python " + str(iComision)
     curso = Curso(nombre=sNombre, comision=iComision)
@@ -81,7 +81,8 @@ def cartaCreate (request):
         if miForm.is_valid():
             carta_nombre = miForm.cleaned_data.get("nombre")
             carta_tipo = miForm.cleaned_data.get("tipo")
-            carta = Carta(nombre=carta_nombre, tipo=carta_tipo)
+            carta_precio_USD = miForm.cleaned_data.get("precio_USD")
+            carta = Carta(nombre=carta_nombre, tipo=carta_tipo, precio_USD=carta_precio_USD)
             carta.save()
             return redirect(reverse_lazy('cartas'))
     else:
@@ -96,11 +97,12 @@ def cartaUpdate (request, id_carta):
         if miForm.is_valid():
             carta.nombre = miForm.cleaned_data.get("nombre")
             carta.tipo = miForm.cleaned_data.get("tipo")
+            carta.precio_USD = miForm.cleaned_data.get("precio_USD")
             carta.save()
 
             return redirect(reverse_lazy('cartas'))
     else:
-        miForm = CartaForm(initial={'nombre': carta.nombre, 'tipo': carta.tipo})
+        miForm = CartaForm(initial={'nombre': carta.nombre, 'tipo': carta.tipo, 'precio': carta.precio_USD})
     return render(request, "miapp/cartaForm.html", {"form": miForm})
 
 @login_required
@@ -137,7 +139,8 @@ def figuraCreate (request):
         if miForm.is_valid():
             figura_nombre = miForm.cleaned_data.get("nombre")
             figura_material = miForm.cleaned_data.get("material")
-            figura = Figura(nombre=figura_nombre, material=figura_material)
+            figura_precio_USD = miForm.cleaned_data.get("precio_USD")
+            figura = Figura(nombre=figura_nombre, material=figura_material, precio_USD=figura_precio_USD)
             figura.save()
             return redirect(reverse_lazy('figuras'))
     else:
@@ -152,11 +155,12 @@ def figuraUpdate (request, id_figura):
         if miForm.is_valid():
             figura.nombre = miForm.cleaned_data.get("nombre")
             figura.material = miForm.cleaned_data.get("material")
+            figura.precio_USD = miForm.cleaned_data.get("precio_USD")
             figura.save()
 
             return redirect(reverse_lazy('figuras'))
     else:
-        miForm = FiguraForm(initial={'nombre': figura.nombre, 'material': figura.material})
+        miForm = FiguraForm(initial={'nombre': figura.nombre, 'material': figura.material, 'precio' : figura.precio_USD})
     return render(request, "miapp/figuraForm.html", {"form": miForm})
 
 @login_required
@@ -193,7 +197,8 @@ def dibujoCreate (request):
         if miForm.is_valid():
             dibujo_nombre = miForm.cleaned_data.get("nombre")
             dibujo_autor = miForm.cleaned_data.get("autor")
-            dibujo = Dibujo(nombre=dibujo_nombre, autor=dibujo_autor)
+            dibujo_precio_USD = miForm.cleaned_data.get("precio_USD")
+            dibujo = Dibujo(nombre=dibujo_nombre, autor=dibujo_autor, precio_USD=dibujo_precio_USD)
             dibujo.save()
             return redirect(reverse_lazy('dibujos'))
     else:
@@ -208,11 +213,12 @@ def dibujoUpdate (request, id_dibujo):
         if miForm.is_valid():
             dibujo.nombre = miForm.cleaned_data.get("nombre")
             dibujo.autor = miForm.cleaned_data.get("autor")
+            dibujo.precio_USD = miForm.cleaned_data.get("precio_USD")
             dibujo.save()
 
             return redirect(reverse_lazy('dibujos'))
     else:
-        miForm = DibujoForm(initial={'nombre': dibujo.nombre, 'autor': dibujo.autor})
+        miForm = DibujoForm(initial={'nombre': dibujo.nombre, 'autor': dibujo.autor, 'precio' : dibujo.precio_USD})
     return render(request, "miapp/dibujoForm.html", {"form": miForm})
 
 @login_required
@@ -250,7 +256,8 @@ def camisetaCreate (request):
             camiseta_nombre = miForm.cleaned_data.get("nombre")
             camiseta_color = miForm.cleaned_data.get("color")
             camiseta_forma = miForm.cleaned_data.get("forma")
-            camiseta = Camiseta(nombre=camiseta_nombre, color=camiseta_color, forma=camiseta_forma)
+            camiseta_precio_USD = miForm.cleaned_data.get("precio_USD")
+            camiseta = Camiseta(nombre=camiseta_nombre, color=camiseta_color, forma=camiseta_forma, precio_USD=camiseta_precio_USD)
             camiseta.save()
             return redirect(reverse_lazy('camisetas'))
     else:
@@ -266,11 +273,12 @@ def camisetaUpdate (request, id_camiseta):
             camiseta.nombre = miForm.cleaned_data.get("nombre")
             camiseta.color = miForm.cleaned_data.get("color")
             camiseta.forma = miForm.cleaned_data.get("forma")
+            camiseta.precio_USD = miForm.cleaned_data.get("precio_USD")
             camiseta.save()
 
             return redirect(reverse_lazy('camisetas'))
     else:
-        miForm = CamisetaForm(initial={'nombre': camiseta.nombre, 'color': camiseta.color, 'forma': camiseta.forma})
+        miForm = CamisetaForm(initial={'nombre': camiseta.nombre, 'color': camiseta.color, 'forma': camiseta.forma, 'precio' : camiseta.precio_USD})
     return render(request, "miapp/cartaForm.html", {"form": miForm})
 
 @login_required

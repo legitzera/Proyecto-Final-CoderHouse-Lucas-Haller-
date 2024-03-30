@@ -6,6 +6,7 @@
 
 {% block titulo %}
  <h1 class="fw-bolder">Figuras</h1>
+ <a class="btn btn-lg btn-light" href="#about">Comienza a Bajar!</a>
 {% endblock titulo %}
 
 {% block contenido %}
@@ -29,6 +30,7 @@
                 <th> Id </th>
                 <th> Nombre </th>
                 <th> Material </th>
+                <th> Precio_USD </th>
                 <th> Acciones </th>
             </tr>
         </thead>
@@ -37,7 +39,8 @@
             <tr>
                 <td>{{ f.id }}</td>
                 <td>{{ f.nombre }}</td>   
-                <td>{{ f.material }}</td>  
+                <td>{{ f.material }}</td>
+                <td>{{ f.precio_USD }}</td>  
                 <td>
                     <a
                       href="{% url 'figura_update' f.id %}"
@@ -46,7 +49,7 @@
                       ><i class="fa fa-edit fa-sm" title="Edit Record"></i>
                     </a>
                     <a
-                      href=""
+                      href="{% url 'figura_delete' f.id %}"
                       class="btn btn-danger"
                       style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
                       ><i class="fa fa-trash fa-sm" title="Delete Record"></i>

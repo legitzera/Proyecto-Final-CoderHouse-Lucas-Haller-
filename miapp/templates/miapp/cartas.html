@@ -7,10 +7,12 @@
 
 {% block titulo %}
  <h1 class="fw-bolder">Cartas</h1>
+ <a class="btn btn-lg btn-light" href="#about">Comienza a Bajar!</a>
 {% endblock titulo %}
 
 {% block contenido %}
  <h1> Cartas Disponibles : </h1>
+ 
 
  <table>
 <tr>
@@ -30,6 +32,7 @@
             <th> Id </th>
             <th> Nombre </th>
             <th> Tipo </th>
+            <th> Precio_USD </th>
             <th> Acciones </th>
         </tr>
     </thead>
@@ -38,7 +41,8 @@
         <tr>
             <td>{{ c.id }}</td>
             <td>{{ c.nombre }}</td>   
-            <td>{{ c.tipo }}</td> 
+            <td>{{ c.tipo }}</td>
+            <td>{{ c.precio_USD }}</td>  
 
             <td>
                 <a

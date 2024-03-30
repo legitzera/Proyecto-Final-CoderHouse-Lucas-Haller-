@@ -25,13 +25,14 @@ urlpatterns = [
     path('dibujo_update/<id_dibujo>/', dibujoUpdate, name="dibujo_update"),
     path('buscar_dibujos/', buscar_dibujos, name="buscar_dibujos"),
     path('encontrar_dibujos/', encontrar_dibujos, name="encontrar_dibujos"),
-    path('dibujo_delete/<id_carta>/', dibujoDelete, name="dibujo_delete"),
+    path('dibujo_delete/<id_dibujo>/', dibujoDelete, name="dibujo_delete"),
     #-----------------------------FIGURAS------------------------------------------
     path('figuras/', figuras, name="figuras"),
     path('figura_create/', figuraCreate, name="figura_create"),
     path('figura_update/<id_figura>/', figuraUpdate, name="figura_update"),
     path('buscar_figuras/', buscar_figuras, name="buscar_figuras"),
     path('encontrar_figuras/', encontrar_figuras, name="encontrar_figuras"),
+    path('figura_delete/<id_figura>/', figuraDelete, name="figura_delete"),
     #-----------------------------CAMISETAS------------------------------------------
     path('camisetas/', camisetas, name="camisetas"),
     path('camiseta_create/', camisetaCreate, name="camiseta_create"),

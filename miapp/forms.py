@@ -5,14 +5,17 @@ from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 class CartaForm(forms.Form):
     nombre = forms.CharField(max_length=100, required=True)
     tipo = forms.CharField(max_length=100, required=True)
+    precio_USD = forms.DecimalField(max_digits=10, decimal_places=2, required=True)
 
 class FiguraForm(forms.Form):
     nombre = forms.CharField(max_length=100, required=True)
-    material = forms.CharField(max_length=100, required=True)    
+    material = forms.CharField(max_length=100, required=True) 
+    precio_USD = forms.DecimalField(max_digits=10, decimal_places=2, required=True)   
 
 class DibujoForm(forms.Form):
     nombre = forms.CharField(max_length=100, required=True)
-    autor = forms.CharField(max_length=100, required=True)    
+    autor = forms.CharField(max_length=100, required=True)
+    precio_USD = forms.DecimalField(max_digits=10, decimal_places=2, required=True)    
 
 class RegistroForm(UserCreationForm): 
     email = forms.EmailField(required=True)   
@@ -26,7 +29,8 @@ class RegistroForm(UserCreationForm):
 class CamisetaForm(forms.Form):
     nombre = forms.CharField(max_length=100, required=True)
     color = forms.CharField(max_length=100, required=True)  
-    forma = forms.CharField(max_length=100, required=True)  
+    forma = forms.CharField(max_length=100, required=True) 
+    precio_USD = forms.DecimalField(max_digits=10, decimal_places=2, required=True) 
 
 class UserEditForm(UserChangeForm): 
     email = forms.EmailField(required=True)   
