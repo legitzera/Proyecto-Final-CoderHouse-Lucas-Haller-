@@ -1,0 +1,61 @@
+{% extends "miapp/index.html" %}
+
+{% block pagina %}
+        <title>PokeMarket : Cartas</title>
+{% endblock pagina %}
+
+
+{% block titulo %}
+ <h1 class="fw-bolder">Cartas</h1>
+{% endblock titulo %}
+
+{% block contenido %}
+ <h1> Cartas Disponibles : </h1>
+
+ <table>
+<tr>
+    
+    <td>
+        <a
+        href="{% url 'carta_create' %}"
+        class="btn btn-primary btn-sm"
+        ><i class="fa fa-plus fa-lg" title="Crear"></i>
+        </a>
+    </td>
+ </table>   
+ 
+ <table class="table table-striped">
+    <thead>
+        <tr>
+            <th> Id </th>
+            <th> Nombre </th>
+            <th> Tipo </th>
+            <th> Acciones </th>
+        </tr>
+    </thead>
+    <tbody>
+    {% for c in cartas %}
+        <tr>
+            <td>{{ c.id }}</td>
+            <td>{{ c.nombre }}</td>   
+            <td>{{ c.tipo }}</td> 
+
+            <td>
+                <a
+                  href="{% url 'carta_update' c.id %}"
+                  class="btn btn-primary"
+                  style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+                  ><i class="fa fa-edit fa-sm" title="Edit Record"></i>
+                </a>
+                <a
+                  href="{% url 'carta_delete' c.id %}"
+                  class="btn btn-danger"
+                  style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+                  ><i class="fa fa-trash fa-sm" title="Delete Record"></i>
+                </a>                
+            </td>               
+        </tr>
+    {% endfor %}   
+    </tbody>
+ </table>            
+{% endblock contenido %}

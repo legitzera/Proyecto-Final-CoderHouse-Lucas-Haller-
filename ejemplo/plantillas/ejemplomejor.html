@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mejor</title>
+</head>
+<body>
+    <h1>ejemplo de html 1</h1>
+    <h2>aca el mas chiquito</h2>
+    <h3>Bienvenido {{nombre}} {{apellido}}</h3>
+
+    {% for n in notas %}
+       
+        
+        {% if n > 6 %}
+         <p style="color:green">Es una nota BUENA: {{n}}</p>  
+        {% else %}
+        <p style="color:red">Es una nota MALA: {{n}}</p>  
+        {% endif %}
+                 
+    {% endfor %}
+</body>
+</html>
