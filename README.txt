@@ -19,3 +19,8 @@ pw ----- > legitzera
 otro usuario cualquiera :
 usuario ---- > lucash
 pw ----- > boca12345678
+
+video de youtube ----> https://youtu.be/ZTsS5s1H26Q
+
+Django version 5.0.3
+Python version 3.11.7
